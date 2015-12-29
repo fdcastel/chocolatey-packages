@@ -1,20 +1,13 @@
-[CmdletBinding()]
-Param([Switch]$Uninstall)
-
 $packageName = 'cygrsync'
+$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $url = 'https://github.com/fdcastel/cygrsync/archive/master.zip'
+$checksum = '3D18538BF626F3EC6BB8F29A63E1A2306422BFB5'
+$checksumType = 'sha1'
 
-$rootPath = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-
-if (-not $Uninstall) {
-    Install-ChocolateyZipPackage $packageName $url $rootPath
-} else {
-    $zipFolder = Join-Path $rootPath '.\cygrsync-master'
-    Remove-Item $zipFolder -Recurse
-
-    # Can of worms!
-    #   https://github.com/chocolatey/chocolatey/issues?q=UnInstall-ChocolateyZipPackage
-    # 
-    # UnInstall-ChocolateyZipPackage $packageName 'cygrsyncInstall.zip'
-}
+Install-ChocolateyZipPackage -PackageName "$packageName" `
+                             -Url "$url" `
+                             -UnzipLocation "$toolsDir" `
+                             -Url64bit "" `
+                             -Checksum "$checksum" `
+                             -ChecksumType "$checksumType"
