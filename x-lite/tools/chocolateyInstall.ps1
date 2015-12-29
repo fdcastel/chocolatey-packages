@@ -1,25 +1,18 @@
-[CmdletBinding()]
-Param([Switch]$Uninstall)
-
-$packageName = 'xlite'
+$packageName = 'x-lite'
 $installerType = 'exe'
 
-$url = 'http://counterpath.s3.amazonaws.com/downloads/X-Lite_Win32_4.8.4_76589.exe'
-$installerName = 'X-Lite_Win32_4.8.4_76589.exe'
+$silentArgs = '/VERYSILENT /NORESTART'
+$url = 'http://counterpath.s3.amazonaws.com/downloads/X-Lite_4.9.2_79048.exe'
+$validExitCodes = @(0,1)
 
-# --- Main ---
 
-if (-not $Uninstall) {
-    # Download installer into TEMP folder
-    $installerFullName = Join-Path $env:TEMP $installerName
-    Get-ChocolateyWebFile $packageName $installerFullName $url
-}
-    
-if (-not $Uninstall) {
-    # Install in very silent mode
-    $installerArgs = '/SP-', 
-                        '/VERYSILENT', 
-                        '/NORESTART'
+$checksum = '7EB91D07DDF7568B3CDA042BC3119AB7B48CE264'
+$checksumType = 'sha1'
 
-    Install-ChocolateyInstallPackage $packageName $installerType $installerArgs $installerFullName -validExitCodes @(0,1)
-}
+Install-ChocolateyPackage -PackageName "$packageName" `
+                          -FileType "$installerType" `
+                          -SilentArgs "$silentArgs" `
+                          -Url "$url" `
+                          -ValidExitCodes $validExitCodes `
+                          -Checksum "$checksum" `
+                          -ChecksumType "$checksumType"

@@ -1,4 +1,22 @@
-$here = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$installScript = Join-Path $here '.\chocolateyInstall.ps1'
+$packageName = 'x-lite'
+$uninstallerType = 'msi'
 
-& $installScript -Uninstall
+$silentArgs = '/quiet /qn /norestart'
+$validExitCodes = @(0)
+
+$packageSearch = 'X-Lite'
+
+try {
+  Get-ItemProperty -Path @( 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                            'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                            'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' ) `
+                   -ErrorAction:SilentlyContinue `
+  | Where-Object   { $_.DisplayName -like "$packageSearch*" } `
+  | ForEach-Object { Uninstall-ChocolateyPackage -PackageName "$packageName" `
+                                                 -FileType "$installerType" `
+                                                 -SilentArgs "$($_.PSChildName) $silentArgs" `
+                                                 -ValidExitCodes $validExitCodes }
+}
+catch {
+  throw $_.Exception
+}
