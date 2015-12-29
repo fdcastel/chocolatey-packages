@@ -3,16 +3,22 @@
   <metadata>
     <id>cygssh</id>
     <title>Cygwin OpenSSH</title>
-    <version>6.7.1.2</version>
+    <version>7.1.1.1</version>
     <authors>The OpenBSD Project</authors>
-    <owners>The OpenBSD Project</owners>
+    <owners>fdcastel</owners>
     <summary>OpenSSH SSH client (remote login program)</summary>
     <description>OpenSSH (OpenBSD Secure Shell) is a set of computer programs that provides encrypted communication sessions over a computer network using the SSH protocol. It was created as an open source alternative to the proprietary Secure Shell software suite offered by SSH Communications Security.</description>
     <projectUrl>http://www.openssh.com/</projectUrl>
+    <releaseNotes>http://www.openssh.com/txt/release-7.1</releaseNotes>
+    <docsUrl>http://www.openssh.com/manual.html</docsUrl>
+    <mailingListUrl>http://www.openssh.com/list.html</mailingListUrl>
+    <bugTrackerUrl>http://www.openssh.com/report.html</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/openssh/openssh-portable</projectSourceUrl>
     <tags>ssh openssh</tags>
     <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>http://upload.wikimedia.org/wikipedia/en/6/65/OpenSSH_logo.png</iconUrl>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

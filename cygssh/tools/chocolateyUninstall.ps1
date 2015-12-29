@@ -1,4 +1,6 @@
-$here = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$installScript = Join-Path $here '.\chocolateyInstall.ps1'
+$toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-& $installScript -Uninstall
+# Alternative to UnInstall-ChocolateyZipPackage
+#   https://github.com/chocolatey/chocolatey/issues?q=UnInstall-ChocolateyZipPackage
+$zipFolder = Join-Path $toolsDir '.\cygssh-master'
+Remove-Item $zipFolder -Recurse
