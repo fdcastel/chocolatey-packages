@@ -1,4 +1,8 @@
-$here = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$installScript = Join-Path $here '.\chocolateyInstall.ps1'
+$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+$toolsScript = Join-Path $toolsDir ".\firebirdTools.ps1"
 
-& $installScript -Uninstall
+. $toolsScript
+
+$packageName = 'firebirdclient'
+
+Uninstall-Firebird $packageName
