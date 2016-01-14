@@ -38,8 +38,9 @@ if ($packageParameters) {
 
 if ($classicServerType -eq $true) {
     Write-Host "ClassicServer Installation"
-    Install-FirebirdClassicServer $packageName    
+    Install-FirebirdClassicServer $packageName 
 } else {
     Write-Host "SuperServer Installation"
     Install-FirebirdSuperServer $packageName
 }
+Export-FirebirdPath
