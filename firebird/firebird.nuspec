@@ -3,7 +3,7 @@
   <metadata>
     <id>firebird</id>
     <title>Firebird Database Server</title>
-    <version>2.5.5</version>
+    <version>2.5.5.4</version>
     <authors>Firebird Project</authors>
     <owners>fdcastel</owners>
     <summary>Firebird Database Server - True universal open source database</summary>
@@ -20,7 +20,7 @@
     <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="firebirdclient" version="2.5.5"/>
+      <dependency id="firebirdclient" version="2.5.5.4"/>
     </dependencies>    
   </metadata>
   <files>
