@@ -18,8 +18,8 @@
     <iconUrl>http://www.counterpath.com/assets/images/product_subpage_marquee/marquee_desktop_xlite.jpg</iconUrl>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="vcredist2010" version="10.0.40219.1" />
       <dependency id="vcredist2012" version="11.0.61030" />
+      <dependency id="vcredist2013" version="12.0.30501.20150616" />
     </dependencies>    
   </metadata>
   <files>
