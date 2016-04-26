@@ -76,7 +76,7 @@ function Install-FirebirdClient ($packageName)
     Check-FirebirdInstalled
 }
 
-function Install-FirebirdServer ($packageName)
+function Install-FirebirdSuperClassic ($packageName)
 {
     Download-FirebirdInstaller
 
@@ -95,3 +95,24 @@ function Install-FirebirdServer ($packageName)
 
     Check-FirebirdInstalled
 }
+
+function Install-FirebirdSuperServer ($packageName)
+{
+    Download-FirebirdInstaller
+
+    Uninstall-Firebird
+
+    # Install SuperServer server, without Guardian, without Control Panel Applet and copy gds32.dll into System folder
+    $installerArgs = '/SP-', 
+                     '/VERYSILENT', 
+                     '/NORESTART',
+                     '/NOICONS',
+                     '/SUPPRESSMSGBOXES',
+                     '/COMPONENTS="ServerComponent\SuperServerComponent,ServerComponent,DevAdminComponent,ClientComponent"',
+                     '/TASKS="|UseGuardianTask,UseServiceTask,AutoStartTask,|InstallCPLAppletTask,|MenuGroupTask,|CopyFbClientToSysTask,CopyFbClientAsGds32Task"'
+
+    Install-ChocolateyInstallPackage $packageName $installerType $installerArgs $installerFullName
+    
+    Check-FirebirdInstalled
+}
+

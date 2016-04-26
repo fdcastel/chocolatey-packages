@@ -3,11 +3,22 @@
   <metadata>
     <id>firebird</id>
     <title>Firebird Database Server</title>
-    <version>2.5.5</version>
+    <version>2.5.5.1</version>
     <authors>Firebird Project</authors>
     <owners>fdcastel</owners>
     <summary>Firebird Database Server - True universal open source database</summary>
-    <description>Firebird is a relational database offering many ANSI SQL standard features that runs on Linux, Windows, and a variety of Unix platforms. Firebird offers excellent concurrency, high performance, and powerful language support for stored procedures and triggers.</description>
+    <description>
+Firebird is a relational database offering many ANSI SQL standard features that runs on Linux, Windows, and a variety of Unix platforms. Firebird offers excellent concurrency, high performance, and powerful language support for stored procedures and triggers.
+
+#### Package Parameters
+
+The following package parameters can be set:
+
+ * `/SuperServer` - Installs Firebird SuperServer (default: SuperClassic)
+
+These parameters can be passed to the installer with the use of `-params`.
+For example: `-params '/SuperServer'`.
+    </description>
     <projectUrl>http://firebirdsql.org</projectUrl>
     <releaseNotes>http://www.firebirdsql.org/file/documentation/release_notes/html/rlsnotes255.html</releaseNotes>
     <docsUrl>http://www.firebirdsql.org/en/documentation/</docsUrl>
@@ -20,7 +31,7 @@
     <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="firebirdclient" version="2.5.5"/>
+      <dependency id="firebirdclient" version="2.5.5.1"/>
     </dependencies>    
   </metadata>
   <files>
