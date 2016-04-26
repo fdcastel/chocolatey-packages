@@ -3,7 +3,7 @@
   <metadata>
     <id>firebird</id>
     <title>Firebird Database Server</title>
-    <version>2.5.5.1</version>
+    <version>3.0.0-pre</version>
     <authors>Firebird Project</authors>
     <owners>fdcastel</owners>
     <summary>Firebird Database Server - True universal open source database</summary>
@@ -14,13 +14,14 @@ Firebird is a relational database offering many ANSI SQL standard features that 
 
 The following package parameters can be set:
 
- * `/SuperServer` - Installs Firebird SuperServer (default: SuperClassic)
+ * `/SuperClassic` - Installs Firebird SuperClassic (default: SuperServer)
+ * `/Classic` - Installs Firebird Classic
 
 These parameters can be passed to the installer with the use of `-params`.
-For example: `-params '/SuperServer'`.
+For example: `-params '/SuperClassic'`.
     </description>
     <projectUrl>http://firebirdsql.org</projectUrl>
-    <releaseNotes>http://www.firebirdsql.org/file/documentation/release_notes/html/rlsnotes255.html</releaseNotes>
+    <releaseNotes>http://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rlsnotes30.html</releaseNotes>
     <docsUrl>http://www.firebirdsql.org/en/documentation/</docsUrl>
     <mailingListUrl>http://www.firebirdsql.org/en/mailing-lists/</mailingListUrl>
     <bugTrackerUrl>http://tracker.firebirdsql.org/</bugTrackerUrl>
@@ -31,7 +32,7 @@ For example: `-params '/SuperServer'`.
     <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="firebirdclient" version="2.5.5.1"/>
+      <dependency id="firebirdclient" version="3.0.0-pre"/>
     </dependencies>    
   </metadata>
   <files>
@@ -39,4 +40,3 @@ For example: `-params '/SuperServer'`.
   </files>
 </package>
 <!-- character encoding: “UTF-8” -->
-

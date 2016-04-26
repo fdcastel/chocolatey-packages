@@ -3,13 +3,13 @@
   <metadata>
     <id>firebirdclient</id>
     <title>Firebird Database Client Libraries</title>
-    <version>2.5.5.1</version>
+    <version>3.0.0-pre</version>
     <authors>Firebird Project</authors>
     <owners>fdcastel</owners>
     <summary>Client Libraries for Firebird Database Server</summary>
     <description>Firebird is a relational database offering many ANSI SQL standard features that runs on Linux, Windows, and a variety of Unix platforms. Firebird offers excellent concurrency, high performance, and powerful language support for stored procedures and triggers.</description>
     <projectUrl>http://firebirdsql.org</projectUrl>
-    <releaseNotes>http://www.firebirdsql.org/file/documentation/release_notes/html/rlsnotes255.html</releaseNotes>
+    <releaseNotes>http://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rlsnotes30.html</releaseNotes>
     <docsUrl>http://www.firebirdsql.org/en/documentation/</docsUrl>
     <mailingListUrl>http://www.firebirdsql.org/en/mailing-lists/</mailingListUrl>
     <bugTrackerUrl>http://tracker.firebirdsql.org/</bugTrackerUrl>
@@ -25,4 +25,3 @@
   </files>
 </package>
 <!-- character encoding: “UTF-8” -->
-
