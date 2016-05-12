@@ -87,9 +87,8 @@ function Install-FirebirdServer ($packageName, $serverTypeTask)
                      '/NORESTART',
                      '/NOICONS',
                      '/SUPPRESSMSGBOXES',
-                     '/SUPPORTLEGACYCLIENTAUTH',
                      '/COMPONENTS="ServerComponent\SuperServerComponent,ServerComponent,DevAdminComponent,ClientComponent"',
-                     '/TASKS="' + $serverTypeTask + ',|UseGuardianTask,UseServiceTask,AutoStartTask,|InstallCPLAppletTask,|MenuGroupTask,CopyFbClientToSysTask,CopyFbClientAsGds32Task"'
+                     '/TASKS="' + $serverTypeTask + ',|UseGuardianTask,UseServiceTask,AutoStartTask,|InstallCPLAppletTask,|MenuGroupTask,CopyFbClientToSysTask,CopyFbClientAsGds32Task,EnableLegacyClientAuth"'
 
     Install-ChocolateyInstallPackage $packageName $installerType $installerArgs $installerFullName
     
