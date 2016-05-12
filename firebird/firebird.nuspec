@@ -3,7 +3,7 @@
   <metadata>
     <id>firebird</id>
     <title>Firebird Database Server</title>
-    <version>3.0.0-pre</version>
+    <version>3.0.0</version>
     <authors>Firebird Project</authors>
     <owners>fdcastel</owners>
     <summary>Firebird Database Server - True universal open source database</summary>
@@ -32,7 +32,7 @@ For example: `-params '/SuperClassic'`.
     <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="firebirdclient" version="3.0.0-pre"/>
+      <dependency id="firebirdclient" version="3.0.0"/>
     </dependencies>    
   </metadata>
   <files>

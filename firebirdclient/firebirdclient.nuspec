@@ -3,7 +3,7 @@
   <metadata>
     <id>firebirdclient</id>
     <title>Firebird Database Client Libraries</title>
-    <version>3.0.0-pre</version>
+    <version>3.0.0</version>
     <authors>Firebird Project</authors>
     <owners>fdcastel</owners>
     <summary>Client Libraries for Firebird Database Server</summary>
