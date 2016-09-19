@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>firebird</id>
-    <title>Firebird Database Server</title>
-    <version>3.0.0</version>
-    <authors>Firebird Project</authors>
+    <version><%$($Configuration.version)%></version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <owners>fdcastel</owners>
+
+    <title>Firebird Database Server</title>
+    <authors>Firebird Project</authors>
+    <projectUrl>http://firebirdsql.org</projectUrl>
+    <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
+    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>http://www.firebirdsql.org/en/code-repository/</projectSourceUrl>
+    <docsUrl>http://www.firebirdsql.org/en/documentation/</docsUrl>
+    <mailingListUrl>http://www.firebirdsql.org/en/mailing-lists/</mailingListUrl>
+    <bugTrackerUrl>http://tracker.firebirdsql.org/</bugTrackerUrl>
+    <tags>admin firebird database</tags>
     <summary>Firebird Database Server - True universal open source database</summary>
     <description>
 Firebird is a relational database offering many ANSI SQL standard features that runs on Linux, Windows, and a variety of Unix platforms. Firebird offers excellent concurrency, high performance, and powerful language support for stored procedures and triggers.
@@ -20,23 +32,12 @@ The following package parameters can be set:
 These parameters can be passed to the installer with the use of `-params`.
 For example: `-params '/SuperClassic'`.
     </description>
-    <projectUrl>http://firebirdsql.org</projectUrl>
     <releaseNotes>http://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rlsnotes30.html</releaseNotes>
-    <docsUrl>http://www.firebirdsql.org/en/documentation/</docsUrl>
-    <mailingListUrl>http://www.firebirdsql.org/en/mailing-lists/</mailingListUrl>
-    <bugTrackerUrl>http://tracker.firebirdsql.org/</bugTrackerUrl>
-    <projectSourceUrl>http://www.firebirdsql.org/en/code-repository/</projectSourceUrl>
-    <tags>admin firebird database</tags>
-    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
-    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="firebirdclient" version="3.0.0"/>
+      <dependency id="firebirdclient" version="[<%$($Configuration.version)%>]"/>
     </dependencies>    
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
   </files>
 </package>
-<!-- character encoding: “UTF-8” -->

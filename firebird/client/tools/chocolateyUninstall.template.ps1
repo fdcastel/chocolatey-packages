@@ -1,0 +1,3 @@
+<%$includeFirebirdTools%>
+
+Uninstall-Firebird
