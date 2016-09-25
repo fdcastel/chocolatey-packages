@@ -3,7 +3,7 @@
   <metadata>
     <id>x-lite</id>
     <title>CounterPath X-Lite</title>
-    <version>4.9.3.79961</version>
+    <version>4.9.5.81564</version>
     <authors>CounterPath</authors>
     <owners>fdcastel</owners>
     <summary>CounterPath X-Lite Softphone</summary>
@@ -18,7 +18,7 @@
     <iconUrl>http://www.counterpath.com/assets/images/product_subpage_marquee/marquee_desktop_xlite.jpg</iconUrl>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <dependencies>
-      <dependency id="vcredist2012" version="11.0.61030" />
+      <dependency id="vcredist2012" version="11.0.61031" />
       <dependency id="vcredist2013" version="12.0.30501.20150616" />
     </dependencies>    
   </metadata>
@@ -27,4 +27,3 @@
   </files>
 </package>
 <!-- character encoding: “UTF-8” -->
-

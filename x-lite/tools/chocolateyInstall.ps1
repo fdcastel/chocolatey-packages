@@ -2,12 +2,12 @@ $packageName = 'x-lite'
 $installerType = 'exe'
 
 $silentArgs = '/VERYSILENT /NORESTART'
-$url = 'http://counterpath.s3.amazonaws.com/downloads/X-Lite_4.9.3_79961.exe'
+$url = 'http://counterpath.s3.amazonaws.com/downloads/X-Lite_4.9.5.1_81564.exe'
 $validExitCodes = @(0,1)
 
 
-$checksum = '2656A68CEDEB413C26B8E3EE5D026D3DD30C4E92'
-$checksumType = 'sha1'
+$checksum = '051CEB094DA4BFBC6FDC8FCA2A5E94B39D548D643AD90854207C907FBC04DA59'
+$checksumType = 'sha256'
 
 Install-ChocolateyPackage -PackageName "$packageName" `
                           -FileType "$installerType" `
