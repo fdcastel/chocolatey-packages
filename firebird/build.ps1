@@ -1,3 +1,5 @@
+#Requires -Version 5.0
+
 $config = @{
     'current' = @{
         'version' = '3.0.1'
