@@ -1,9 +1,9 @@
 $config = @{
     'current' = @{
-        'version' = '3.0.0.1'
-        'url' = 'http://downloads.sourceforge.net/project/firebird/firebird-win32/3.0-Release/Firebird-3.0.0.32483_2_Win32.exe'
-        'url64' = 'http://downloads.sourceforge.net/project/firebird/firebird-win64/3.0-Release/Firebird-3.0.0.32483_2_x64.exe'
-        'installerName' = 'Firebird-3.0.0.32483_2.exe'
+        'version' = '3.0.1'
+        'url' = 'http://downloads.sourceforge.net/project/firebird/firebird-win32/3.0.1-Release/Firebird-3.0.1.32609_0_Win32.exe'
+        'url64' = 'http://downloads.sourceforge.net/project/firebird/firebird-win64/3.0.1-Release/Firebird-3.0.1.32609_0_x64.exe'
+        'installerName' = 'Firebird-3.0.1.32609_0.exe'
     }
     'series25' = @{
         'version' = '2.5.6'
@@ -30,6 +30,7 @@ function New-File ($FileName) {
 function Expand-Template([Parameter(ValueFromPipeline=$true)]$Template) {
     $evaluator = { 
         $innerTemplate = $args[0].Groups[1].Value
+        # TODO: change the ExpandString below to something compatible with PS4
         $ExecutionContext.InvokeCommand.ExpandString($innerTemplate)
     }
     $regex = [regex]"\<\%(.*?)\%\>"
