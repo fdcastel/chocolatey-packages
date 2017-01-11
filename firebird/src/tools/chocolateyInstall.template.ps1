@@ -1,3 +1,3 @@
 <%$includeFirebirdTools%>
 
-Install-FirebirdServer
+Install-Firebird

@@ -2,23 +2,22 @@
 
 $config = @{
     'current' = @{
-        'version' = '3.0.1'
-        'url' = 'http://downloads.sourceforge.net/project/firebird/firebird-win32/3.0.1-Release/Firebird-3.0.1.32609_0_Win32.exe'
-        'url64' = 'http://downloads.sourceforge.net/project/firebird/firebird-win64/3.0.1-Release/Firebird-3.0.1.32609_0_x64.exe'
+        'version' = '3.0.1.1000'
+        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/3.0.1-Release/Firebird-3.0.1.32609_0_Win32.exe'
+        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/3.0.1-Release/Firebird-3.0.1.32609_0_x64.exe'
         'installerName' = 'Firebird-3.0.1.32609_0.exe'
     }
     'series25' = @{
-        'version' = '2.5.6'
-        'url' = 'http://downloads.sourceforge.net/project/firebird/firebird-win32/2.5.6-Release/Firebird-2.5.6.27020_0_Win32.exe'
-        'url64' = 'http://downloads.sourceforge.net/project/firebird/firebird-win64/2.5.6-Release/Firebird-2.5.6.27020_0_x64.exe'
+        'version' = '2.5.6.1000'
+        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/2.5.6-Release/Firebird-2.5.6.27020_0_Win32.exe'
+        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.5.6-Release/Firebird-2.5.6.27020_0_x64.exe'
         'installerName' = 'Firebird-2.5.6.27020_0.exe'
     }
     'series21' = @{
-        'version' = '2.1.7'
-        'url' = 'http://downloads.sourceforge.net/project/firebird/firebird-win32/2.1.7-Release/Firebird-2.1.7.18553_0_Win32.exe'
-        'url64' = 'http://downloads.sourceforge.net/project/firebird/firebird-win64/2.1.7-Release/Firebird-2.1.7.18553_0_x64.exe'
+        'version' = '2.1.7.1000'
+        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/2.1.7-Release/Firebird-2.1.7.18553_0_Win32.exe'
+        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.1.7-Release/Firebird-2.1.7.18553_0_x64.exe'
         'installerName' = 'Firebird-2.1.7.18553_0.exe'
-
     }
 }
 
@@ -56,6 +55,7 @@ function Expand-TemplateFolder($SourcePath, $TargetPath) {
                                 Set-Content $targetFileName -Encoding UTF8
                     }
                     else {
+                        New-File $targetFileName
                         Copy-Item -Path $sourceFileName $targetFileName
                     }
                 }
@@ -87,9 +87,7 @@ function Download-TempFile([uri]$url){
     $file
 }
 
-function Build-FirebirdPackage($PackageName, $SourcePath, $Configuration, [switch]$ClientOnly) {
-    $Configuration.packageName = $PackageName
-
+function Build-FirebirdPackage($Configuration) {
     # Calculate checksums for each installer
     $Configuration.checksum = (Get-FileHash (Download-TempFile $Configuration.url) -Algorithm SHA256).Hash
     $Configuration.checksum64 = (Get-FileHash (Download-TempFile $Configuration.url64) -Algorithm SHA256).Hash
@@ -105,7 +103,7 @@ function Build-FirebirdPackage($PackageName, $SourcePath, $Configuration, [switc
     mkdir $tempFolder | Out-Null
     try {
         # Copy source folder content to temp folder, expanding templates
-        Expand-TemplateFolder -SourcePath $SourcePath -TargetPath $tempFolder
+        Expand-TemplateFolder -SourcePath '.\src' -TargetPath $tempFolder
 
         # Create chocolatey package in .\out 
         $outputPath = (Get-Item '.\out').FullName
@@ -132,6 +130,5 @@ function Build-FirebirdPackage($PackageName, $SourcePath, $Configuration, [switc
 mkdir '.\out' -ErrorAction SilentlyContinue | Out-Null
 
 $config.Keys | ForEach-Object {
-    Build-FirebirdPackage -PackageName 'firebirdclient' -SourcePath '.\client' -Configuration $config.$_
-    Build-FirebirdPackage -PackageName 'firebird' -SourcePath '.\server' -Configuration $config.$_
+    Build-FirebirdPackage -Configuration $config.$_
 }
