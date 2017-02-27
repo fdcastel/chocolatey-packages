@@ -8,10 +8,10 @@ $config = @{
         'installerName' = 'Firebird-3.0.1.32609_0.exe'
     }
     'series25' = @{
-        'version' = '2.5.6.1000'
-        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/2.5.6-Release/Firebird-2.5.6.27020_0_Win32.exe'
-        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.5.6-Release/Firebird-2.5.6.27020_0_x64.exe'
-        'installerName' = 'Firebird-2.5.6.27020_0.exe'
+        'version' = '2.5.7.1000'
+        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/2.5.7-Release/Firebird-2.5.7.27050_0_Win32.exe'
+        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.5.7-Release/Firebird-2.5.7.27050_0_x64.exe'
+        'installerName' = 'Firebird-2.5.7.27050_0_x64.exe'
     }
     'series21' = @{
         'version' = '2.1.7.1000'
