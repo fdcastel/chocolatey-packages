@@ -2,10 +2,10 @@
 
 $config = @{
     'current' = @{
-        'version' = '3.0.1.1000'
-        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/3.0.1-Release/Firebird-3.0.1.32609_0_Win32.exe'
-        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/3.0.1-Release/Firebird-3.0.1.32609_0_x64.exe'
-        'installerName' = 'Firebird-3.0.1.32609_0.exe'
+        'version' = '3.0.2'
+        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/3.0.2-Release/Firebird-3.0.2.32703_0_Win32.exe'
+        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/3.0.2-Release/Firebird-3.0.2.32703_0_x64.exe'
+        'installerName' = 'Firebird-3.0.2.32703_0.exe'
     }
     'series25' = @{
         'version' = '2.5.7.1000'
