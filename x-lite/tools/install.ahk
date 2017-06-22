@@ -8,17 +8,14 @@ if ErrorLevel
 }
 SetKeyDelay, 0, 50
 
+; Check "I accept the terms in the Licence Agreement"
+SendInput {Tab}
 SendInput {Tab}
 SendInput {Space}
 
+; Click "Accept" button
 SendInput {Tab}
-
-SendInput {Space}
-
 SendInput {Tab}
-
-SendInput {Tab}
-
 SendInput {Space}
 
 WinWaitClose
