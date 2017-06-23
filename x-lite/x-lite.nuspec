@@ -50,7 +50,7 @@ Workaround: Close X-Lite and delete the StrongName folder:
 </releaseNotes>
     <docsUrl>http://www.counterpath.com/assets/product_documents/X-Lite_4_Windows_User_Guide_R6.pdf</docsUrl>
     <mailingListUrl>https://support.counterpath.com/</mailingListUrl>
-    <tags>admin counterpath x-lite softphone</tags>
+    <tags>admin notsilent counterpath x-lite softphone</tags>
     <licenseUrl>http://www.counterpath.com/eula/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>http://www.counterpath.com/assets/images/product_subpage_marquee/marquee_desktop_xlite.jpg</iconUrl>
