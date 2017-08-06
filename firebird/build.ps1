@@ -19,6 +19,12 @@ $config = @{
         'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.1.7-Release/Firebird-2.1.7.18553_0_x64.exe'
         'installerName' = 'Firebird-2.1.7.18553_0.exe'
     }
+    'series210' = @{
+        'version' = '2.1.0.17798'
+        'url' = 'https://downloads.sourceforge.net/project/firebird/OldFiles/firebird-win32/Firebird-2.1.0.17798_0_Win32.exe'
+        'url64' = 'https://downloads.sourceforge.net/project/firebird/OldFiles/firebird-win64/Firebird-2.1.0.17798_0_x64.exe'
+        'installerName' = 'Firebird-2.1.0.17798_0.exe'
+    }
 }
 
 $ErrorActionPreference = 'Stop'
