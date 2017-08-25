@@ -3,51 +3,13 @@
   <metadata>
     <id>x-lite</id>
     <title>CounterPath X-Lite</title>
-    <version>4.9.8.84253</version>
+    <version>5.0.1.86895</version>
     <authors>CounterPath</authors>
     <owners>fdcastel</owners>
     <summary>CounterPath X-Lite Softphone</summary>
     <description>Combining voice and video calls in a user-friendly interface, CounterPath's X-Lite helps you seamlessly transition from a traditional phone environment into the world of Voice over IP.</description>
     <projectUrl>http://www.counterpath.com/x-lite/</projectUrl>
-    <releaseNotes>#### X-Lite 4.9.8 (March 6, 2017)
-##### Sennheiser Headset Support 
-X-Lite works with Sennheiser headsets running Sennheiser HeadSetup&amp;trade;. When you connect a Sennheiser headset to your computer, you will see a badge on the Notification tab informing that a third-party software download is required. (I-4843/S-4073) 
-###### Downloading Sennheiser HeadSetup&amp;trade; 
-To use Sennheiser headsets with X-Lite clients, the following version of the Sennheiser HeadSetupTM software must be installed on your computer: 
-- HeadSetup for Windows 7.0.2931 or later 
-- HeadSetup for Mac 1.6.3506 or later 
-Check our [website](http://www.counterpath.com/technology-partner-program/?tab=interoperable_devices) for a list of Sennheiser headsets tested by CounterPath. 
-
-Check Sennheiser's sites for the latest information about Sennheiser HeadSetup&amp;trade; at www.sennheiser.com/headset-software-pc. 
-##### [Windows 10] Interactive Toast Notifications 
-When receiving incoming calls or messages on a Windows 10 computer, you will see a toast right above the Windows task bar where you can take an action right within, such as answer or decline a call, and send a message. 
-This feature also brings back an ability to remove a contact from the Alert list with one click. (I-5009) 
-
-##### Messaging History Improvements 
-You can use standard keyboard shortcuts for copy and paste of the messages in the Messaging window. For example, on Windows, you can press Ctrl + A to select all, then press Ctrl + C to copy the whole conversation displayed on the window. X-Lite formats the messages nicely as shown on the right. (I-4897) 
-
-##### User Interface Improvements 
-This version includes some UI improvements, such as: 
-- Round avatars (I--5381) 
-- For call history, incoming call icons are now in blue to be distinguished from outgoing calls (in green). (I-5625)
-
-#### Resolved Issues
-This version contains improvements in the stability of X-Lite, and miscellaneous bug fixes including: 
-- Some of our Windows 10 users experienced X-Lite was not responsive when receiving incoming calls. This issue has been fixed. (I-5489) 
-- With Plantronics Savi W740 headset, a connection with the base station remained after a call ended. This version ends a call properly. (I-5374) 
-#### Known Issues
-
-##### Jabra Headsets for Syncing Volume Control 
-The volume up/down button on Jabra headsets controls the volume as intended when connected through USB. However, when changing the volume on headsets, only the system indicator is synced, displaying the correct volume, but not the volume indicator inside the X-Lite client.  
-
-##### [Windows only] Upgrading to Windows 10  
-After upgrading to Windows 10, you may find that your audio devices/sound have stopped working on X-Lite. This is due to the audio device changes in Windows 10. If you see this issue, open X-Lite and configure your device from Softphone > Preferences > Devices.  
-
-##### [Windows only] X-Lite Not Appearing after Upgrade  
-Some users have experienced that after opening X-Lite, X-Lite does not appear onscreen; however, X-Lite is running in task manager and system tray.  (IM-2082) 
-Workaround: Close X-Lite and delete the StrongName folder: 
-`C:\Users\(USERNAME)\AppData\Local\CounterPath\X-Lite.exe_StrongName_...`
-</releaseNotes>
+    <releaseNotes>http://www.counterpath.com/assets/product_documents/XLite_Release_Notes_v5.0_R1.pdf</releaseNotes>
     <docsUrl>http://www.counterpath.com/assets/product_documents/X-Lite_4_Windows_User_Guide_R6.pdf</docsUrl>
     <mailingListUrl>https://support.counterpath.com/</mailingListUrl>
     <tags>admin notsilent counterpath x-lite softphone</tags>
