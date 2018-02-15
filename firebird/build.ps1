@@ -2,22 +2,16 @@
 
 $config = @{
     'current' = @{
-        'version' = '3.0.2'
-        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/3.0.2-Release/Firebird-3.0.2.32703_0_Win32.exe'
-        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/3.0.2-Release/Firebird-3.0.2.32703_0_x64.exe'
-        'installerName' = 'Firebird-3.0.2.32703_0.exe'
+        'version' = '3.0.3'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/R3_0_3/Firebird-3.0.3.32900_0_Win32.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/R3_0_3/Firebird-3.0.3.32900_0_x64.exe'
+        'installerName' = 'Firebird-3.0.3.32900_0.exe'
     }
     'series25' = @{
-        'version' = '2.5.7.1000'
-        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/2.5.7-Release/Firebird-2.5.7.27050_0_Win32.exe'
-        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.5.7-Release/Firebird-2.5.7.27050_0_x64.exe'
-        'installerName' = 'Firebird-2.5.7.27050_0_x64.exe'
-    }
-    'series21' = @{
-        'version' = '2.1.7.1000'
-        'url' = 'https://downloads.sourceforge.net/project/firebird/firebird-win32/2.1.7-Release/Firebird-2.1.7.18553_0_Win32.exe'
-        'url64' = 'https://downloads.sourceforge.net/project/firebird/firebird-win64/2.1.7-Release/Firebird-2.1.7.18553_0_x64.exe'
-        'installerName' = 'Firebird-2.1.7.18553_0.exe'
+        'version' = '2.5.8'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/R2_5_8/Firebird-2.5.8.27089_0_Win32.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/R2_5_8/Firebird-2.5.8.27089_0_x64.exe'
+        'installerName' = 'Firebird-2.5.8.27089_0.exe'
     }
 }
 
