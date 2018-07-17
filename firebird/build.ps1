@@ -61,6 +61,9 @@ function Expand-TemplateFolder($SourcePath, $TargetPath) {
 }
 
 function Download-TempFile([uri]$url){
+    # Note: Github removed TLS 1.0 support. Enables TLS 1.2
+    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol-bor 'Tls12'
+
     $fileName = $url.Segments[-1]
     $file = Join-Path $env:TEMP $fileName
 
