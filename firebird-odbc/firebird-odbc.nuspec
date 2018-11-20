@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>firebird-odbc</id>
+    <version>2.0.5.156</version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>    
+    <owners>fdcastel</owners>
+    <title>Firebird ODBC Driver</title>
+    <authors>Firebird Project</authors>
+    <projectUrl>https://www.firebirdsql.org/en/odbc-driver/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>Firebird ODBC</tags>
+    <summary>ODBC Driver for Firebird.</summary>
+    <description>
+ODBC Driver for Firebird.
+    </description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
