@@ -47,7 +47,7 @@ function Uninstall-Firebird
     if ($firebirdPath) {
         if (Get-Service -Name FirebirdServerDefaultInstance -ErrorAction SilentlyContinue) {
             Write-Host "Stopping Firebird service..."
-            Stop-Service -Name FirebirdServerDefaultInstance
+            Stop-Service -Name FirebirdServerDefaultInstance -Force
         }
 
         $uninstallers = Join-Path $firebirdPath 'unins*.exe'
