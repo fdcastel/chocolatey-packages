@@ -2,16 +2,16 @@
 
 $config = @{
     'current' = @{
-        'version' = '4.0.0'
-        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.0/Firebird-4.0.0.2496-1-Win32.exe'
-        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.0/Firebird-4.0.0.2496-1-x64.exe'
-        'installerName' = 'Firebird-4.0.0.2496-1.exe'
+        'version' = '4.0.1'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.1/Firebird-4.0.1.2692-0-Win32.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.1/Firebird-4.0.1.2692-0-x64.exe'
+        'installerName' = 'Firebird-4.0.1.2692-0.exe'
     }
     'series30' = @{
-        'version' = '3.0.7'
-        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/R3_0_7/Firebird-3.0.7.33374_1_Win32.exe'
-        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/R3_0_7/Firebird-3.0.7.33374_1_x64.exe'
-        'installerName' = 'Firebird-3.0.7.33374_1.exe'
+        'version' = '3.0.8'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v3.0.8/Firebird-3.0.8.33535_0_Win32.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v3.0.8/Firebird-3.0.8.33535_0_x64.exe'
+        'installerName' = 'Firebird-3.0.8.33535_0.exe'
     }
     'series25' = @{
         'version' = '2.5.9'
