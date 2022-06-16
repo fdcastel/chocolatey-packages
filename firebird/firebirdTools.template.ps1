@@ -77,23 +77,8 @@ function Install-Firebird
         $serverTypeComponent = 'ClientComponent,DevAdminComponent,'
         $serverTypeTask = ''
     } else {
-        if ($version -lt '3') {
-            # Firebird <= 2.5
-            if ($env:chocolateyPackageParameters -contains '/SuperClassic') {
-                Write-Host 'Installing Firebird SuperClassic...'
-                $serverTypeComponent = 'ServerComponent\ClassicServerComponent,'
-                $serverTypeTask = 'SuperClassicTask,'
-            } elseif ($env:chocolateyPackageParameters -contains '/Classic') {
-                Write-Host 'Installing Firebird Classic...'
-                $serverTypeComponent = 'ServerComponent\ClassicServerComponent,'
-                $serverTypeTask = ''
-            } else {
-                Write-Host 'Installing Firebird SuperServer...'
-                $serverTypeComponent = 'ServerComponent\SuperServerComponent,'
-                $serverTypeTask = ''
-            }
-        } else {
-            # Firebird >= 3.0        
+        if ($version -lt '4') {
+            # Firebird 3
             if ($env:chocolateyPackageParameters -contains '/SuperClassic') {
                 Write-Host 'Installing Firebird SuperClassic...'
                 $serverTypeComponent = 'ServerComponent,'
@@ -107,10 +92,28 @@ function Install-Firebird
                 $serverTypeComponent = 'ServerComponent,'
                 $serverTypeTask = 'UseSuperServerTask,'
             }
-        }
 
-        # Server installation: always with admin components.
-        $serverTypeComponent += 'DevAdminComponent,'
+            # Server installation: always with admin components.
+            $serverTypeComponent += 'DevAdminComponent,'
+        } else {
+            # Firebird 4
+            if ($env:chocolateyPackageParameters -contains '/SuperClassic') {
+                Write-Host 'Installing Firebird SuperClassic...'
+                $serverTypeComponent = 'ServerComponent,'
+                $serverTypeTask = 'UseSuperClassicTask,'
+            } elseif ($env:chocolateyPackageParameters -contains '/Classic') {
+                Write-Host 'Installing Firebird Classic...'
+                $serverTypeComponent = 'ServerComponent,'
+                $serverTypeTask = 'UseClassicServerTask,'
+            } else {
+                Write-Host 'Installing Firebird SuperServer...'
+                $serverTypeComponent = 'ServerComponent,'
+                $serverTypeTask = 'UseSuperServerTask,'
+            }
+
+            # Firebird 4: Do not pass serverTypeComponent
+            $serverTypeComponent = $null
+        }
     }
 
     # Install server with legacy client authentication (3.0+) and copy fbclient.dll & gds32.dll into System folder.
@@ -118,9 +121,13 @@ function Install-Firebird
                      '/VERYSILENT', 
                      '/NORESTART',
                      '/NOICONS',
-                     '/SUPPRESSMSGBOXES',
-                     '/COMPONENTS="' + $serverTypeComponent + 'ClientComponent"',
-                     '/TASKS="' + $serverTypeTask + 'UseServiceTask,AutoStartTask,|UseGuardianTask,|InstallCPLAppletTask,|MenuGroupTask,CopyFbClientToSysTask,CopyFbClientAsGds32Task,EnableLegacyClientAuth"'
+                     '/SUPPRESSMSGBOXES'
+
+    if ($serverTypeComponent) {
+        $installerArgs += '/COMPONENTS="' + $serverTypeComponent + 'ClientComponent"'
+    }    
+
+    $installerArgs += '/TASKS="' + $serverTypeTask + 'UseServiceTask,AutoStartTask,|UseGuardianTask,|InstallCPLAppletTask,|MenuGroupTask,CopyFbClientToSysTask,CopyFbClientAsGds32Task,EnableLegacyClientAuth"'
 
     Install-ChocolateyInstallPackage -PackageName $packageName -FileType $installerType `
                                      -SilentArgs $installerArgs -File $installerFullName
