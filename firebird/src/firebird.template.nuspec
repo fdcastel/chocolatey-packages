@@ -11,12 +11,12 @@
     <authors>Firebird Project</authors>
     <projectUrl>http://firebirdsql.org</projectUrl>
     <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-1000.png</iconUrl>
-    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
+    <licenseUrl>https://www.firebirdsql.org/en/initial-developer-s-public-license-version-1-0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>http://www.firebirdsql.org/en/code-repository/</projectSourceUrl>
-    <docsUrl>http://www.firebirdsql.org/en/documentation/</docsUrl>
-    <mailingListUrl>http://www.firebirdsql.org/en/mailing-lists/</mailingListUrl>
-    <bugTrackerUrl>http://tracker.firebirdsql.org/</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/FirebirdSQL/firebird</projectSourceUrl>
+    <docsUrl>https://www.firebirdsql.org/en/documentation</docsUrl>
+    <mailingListUrl>https://www.firebirdsql.org/en/mailing-lists</mailingListUrl>
+    <bugTrackerUrl>https://github.com/FirebirdSQL/firebird/issues</bugTrackerUrl>
     <tags>admin firebird database</tags>
     <summary>Firebird Database Server - True universal open source database</summary>
     <description>
