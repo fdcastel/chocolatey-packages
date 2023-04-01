@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>msodbcsql</id>
-    <version>18.0.1.1</version>
+    <version>18.2.1.1</version>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>    
     <owners>fdcastel</owners>
     <title>Microsoft ODBC Driver 18 for SQL Server</title>

@@ -1,8 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-$url        = 'https://download.microsoft.com/download/1/a/4/1a4a49b8-9fe6-4237-be0d-a6b8f2d559b5/en-US/18.0.1.1/x86/msodbcsql.msi'
-$url64      = 'https://download.microsoft.com/download/1/a/4/1a4a49b8-9fe6-4237-be0d-a6b8f2d559b5/en-US/18.0.1.1/x64/msodbcsql.msi'
+$url        = 'https://download.microsoft.com/download/c/5/4/c54c2bf1-87d0-4f6f-b837-b78d34d4d28a/en-US/18.2.1.1/x86/msodbcsql.msi'
+$url64      = 'https://download.microsoft.com/download/c/5/4/c54c2bf1-87d0-4f6f-b837-b78d34d4d28a/en-US/18.2.1.1/x64/msodbcsql.msi'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -13,9 +13,9 @@ $packageArgs = @{
 
   softwareName  = 'Microsoft ODBC Driver 18 for SQL Server'
 
-  checksum      = '4065F5568650C8F39B472394870EF2F63DB6C5D95215AA1B6701A90A99B64EB4'
+  checksum      = 'A3C94EAFF6A7443C26BE7F5B2F2EED9235921251F01A86D998EAA41E905F5BCD'
   checksumType  = 'sha256'
-  checksum64    = '5EEDB40754558DC36C44061228ED7832A4A53CDA9B3D9319B5A5DD33944E9AF9'
+  checksum64    = '3B9C9F8584B1AFA9071E6324E7C8BE66696211C0FF5A3B0670F2F6C8E2424CF8'
   checksumType64= 'sha256'
 
   # MSI
