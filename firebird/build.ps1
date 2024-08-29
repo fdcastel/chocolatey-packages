@@ -2,22 +2,22 @@
 
 $config = @{
     'current' = @{
-        'version' = '5.0.0'
-        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.0/Firebird-5.0.0.1306-0-windows-x86.exe'
-        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.0/Firebird-5.0.0.1306-0-windows-x64.exe'
-        'installerName' = 'Firebird-5.0.0.1306-0.exe'
+        'version' = '5.0.1'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.1/Firebird-5.0.1.1469-0-windows-x86.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.1/Firebird-5.0.1.1469-0-windows-x64.exe'
+        'installerName' = 'Firebird-5.0.1.1469-0.exe'
     }
     'series40' = @{
-        'version' = '4.0.4'
-        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.4/Firebird-4.0.4.3010-0-Win32.exe'
-        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.4/Firebird-4.0.4.3010-0-x64.exe'
-        'installerName' = 'Firebird-4.0.4.3010-0.exe'
+        'version' = '4.0.5'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.5/Firebird-4.0.5.3140-0-Win32.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v4.0.5/Firebird-4.0.5.3140-0-x64.exe'
+        'installerName' = 'Firebird-4.0.5.3140-0.exe'
     }
     'series30' = @{
-        'version' = '3.0.11'
-        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v3.0.11/Firebird-3.0.11.33703_0_Win32.exe'
-        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v3.0.11/Firebird-3.0.11.33703_0_x64.exe'
-        'installerName' = 'Firebird-3.0.11.33703_0.exe'
+        'version' = '3.0.12'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v3.0.12/Firebird-3.0.12.33787-0-Win32.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v3.0.12/Firebird-3.0.12.33787-0-x64.exe'
+        'installerName' = 'Firebird-3.0.12.33787-0.exe'
     }
 }
 
