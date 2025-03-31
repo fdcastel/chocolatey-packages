@@ -2,10 +2,10 @@
 
 $config = @{
     'current' = @{
-        'version' = '5.0.1'
-        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.1/Firebird-5.0.1.1469-0-windows-x86.exe'
-        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.1/Firebird-5.0.1.1469-0-windows-x64.exe'
-        'installerName' = 'Firebird-5.0.1.1469-0.exe'
+        'version' = '5.0.2'
+        'url' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.2/Firebird-5.0.2.1613-0-windows-x86.exe'
+        'url64' = 'https://github.com/FirebirdSQL/firebird/releases/download/v5.0.2/Firebird-5.0.2.1613-0-windows-x64.exe'
+        'installerName' = 'Firebird-5.0.2.1613-0.exe'
     }
     'series40' = @{
         'version' = '4.0.5'
