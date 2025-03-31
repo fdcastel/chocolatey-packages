@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>opkssh</id>
+    <version>0.3.0</version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
+    <owners>fdcastel</owners>
+
+    <title>opkssh (OpenPubkey SSH)</title>
+    <authors>Ethan Heilman &amp; the OpenPubkey Developers</authors>
+    <projectUrl>https://eprint.iacr.org/2023/296</projectUrl>
+    <iconUrl>https://avatars.githubusercontent.com/u/145685596?s=200</iconUrl>
+    <licenseUrl>https://creativecommons.org/licenses/by/4.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/openpubkey/opkssh</projectSourceUrl>
+    <tags>opkssh openpubkey ssh</tags>
+    <summary>opkssh (OpenPubkey SSH)</summary>
+    <description>
+      opkssh is a tool which enables ssh to be used with OpenID Connect allowing
+      SSH access management via identities instead of long-lived SSH keys.
+    </description>
+    <releaseNotes>https://github.com/openpubkey/opkssh/releases</releaseNotes>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
