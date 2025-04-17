@@ -1,6 +1,4 @@
-Chocolatey Packages (F.D.Castel)
-==================================
+# chocolatey-packages
 
-This repository contains packages that are maintained by me.
+Repository of Chocolatey packages maintained by me.
 
-Pull requests are both appreciated and accepted.
