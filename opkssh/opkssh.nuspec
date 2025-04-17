@@ -10,7 +10,7 @@
     <title>opkssh (OpenPubkey SSH)</title>
     <authors>Ethan Heilman &amp; the OpenPubkey Developers</authors>
     <projectUrl>https://eprint.iacr.org/2023/296</projectUrl>
-    <iconUrl>https://avatars.githubusercontent.com/u/145685596?s=200</iconUrl>
+    <iconUrl>https://rawcdn.githack.com/fdcastel/chocolatey-packages/9fc9b3c50b9a96b8bce81f2ffea012e6699db438/opkssh/assets/openpubkey-logo.png</iconUrl>
     <licenseUrl>https://creativecommons.org/licenses/by/4.0</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/openpubkey/opkssh</projectSourceUrl>
