@@ -1,8 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
 
 $packageName = 'opkssh'
-$url64 = 'https://github.com/openpubkey/opkssh/releases/download/v0.3.0/opkssh-windows-amd64.exe'
-$checksum64 = 'D864576A0007E9CAD914420A94DB51EA74B3473EA22F88317492AFC0B7B4F895'
+$url64 = 'https://github.com/openpubkey/opkssh/releases/download/v0.6.1/opkssh-windows-amd64.exe'
+$checksum64 = '9FD481FC6682BF56D7723B6672FAB71BB942DFEFDD2E166B1C276F3F7D4767BA'
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 

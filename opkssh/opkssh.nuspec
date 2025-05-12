@@ -3,7 +3,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>opkssh</id>
-    <version>0.3.0</version>
+    <version>0.6.1</version>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <owners>fdcastel</owners>
 
