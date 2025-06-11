@@ -1,10 +1,12 @@
-﻿$packageName = 'qemu-img'
-$url64 = 'https://cloudbase.it/downloads/qemu-img-win-x64-2_3_0.zip'
-$checksum64 = '8DC1C69D9880919CDAD8C09126A016262D4A9EDF48B87A1EF587914FE4177909'
+﻿$ErrorActionPreference = 'Stop'
 
-Install-ChocolateyZipPackage `
-    -PackageName "$packageName" `
-    -UnzipLocation "$(Split-Path -parent $MyInvocation.MyCommand.Definition)" `
-    -Url64bit $url64 `
-    -Checksum64 $checksum64 `
-    -ChecksumType64 SHA256
+$toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+
+$packageArgs = @{
+  PackageName    = 'qemu-img'
+  UnzipLocation  = $toolsDir
+  Url64bit       = '{{assets.browser_download_url}}'
+  Checksum64     = '{{assets.sha256}}'
+  ChecksumType64 = 'sha256'
+}
+Install-ChocolateyZipPackage @packageArgs

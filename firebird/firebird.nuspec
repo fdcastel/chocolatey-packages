@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>firebird</id>
+    <version>{{version}}</version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
+    <owners>fdcastel</owners>
+    <title>Firebird</title>
+    <authors>Firebird Foundation</authors>
+    <projectUrl>https://firebirdsql.org/</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/fdcastel/chocolatey-packages@master/icons/firebird.png</iconUrl>
+    <copyright>Copyright (c) Firebird Foundation</copyright>
+    <licenseUrl>https://firebirdsql.org/en/licensing/</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/FirebirdSQL/firebird</projectSourceUrl>
+    <docsUrl>https://firebirdsql.org/en/documentation/</docsUrl>
+    <mailingListUrl>https://firebirdsql.org/en/support/</mailingListUrl>
+    <bugTrackerUrl>https://github.com/FirebirdSQL/firebird/issues</bugTrackerUrl>
+    <tags>firebird database sql rdbms server admin</tags>
+    <summary>Firebird - SQL relational database management system</summary>
+    <description><![CDATA[Firebird is a relational database offering many ANSI SQL standard features that runs on Linux, Windows, MacOS and a variety of Unix platforms. Firebird offers excellent concurrency, high performance, and powerful language support for stored procedures and triggers.
+
+## Features
+
+* Full ACID compliance
+* Multi-version concurrency control (MVCC)
+* Stored procedures and triggers
+* Rich SQL feature set
+* Excellent performance and scalability
+* Cross-platform support
+* Multiple server architectures (SuperServer, Classic, SuperClassic)
+
+## Package Parameters
+
+* `/ClientOnly` - Install only client libraries
+* `/ClientAndDevTools` - Install client libraries and development tools
+* `/SuperClassic` - Install SuperClassic server architecture (default: SuperServer)
+* `/Classic` - Install Classic server architecture (default: SuperServer)
+
+## Installation Examples
+
+Install full server (default SuperServer architecture):
+```
+choco install firebird
+```
+
+Install with SuperClassic architecture:
+```
+choco install firebird --params "/SuperClassic"
+```
+
+Install client libraries only:
+```
+choco install firebird --params "/ClientOnly"
+```
+
+## Notes
+
+- This package will uninstall any existing Firebird installation before installing the new version
+- The installer configures Firebird to start automatically as a Windows service
+- Legacy client authentication is enabled for compatibility
+- Client libraries are copied to the system directory for application compatibility
+]]></description>
+    <releaseNotes>https://github.com/FirebirdSQL/firebird/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

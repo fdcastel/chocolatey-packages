@@ -1,0 +1,21 @@
+package: opkssh
+
+releases:
+  source: https://github.com/openpubkey/opkssh
+  flavors:
+    current:
+      - versionPattern: 'v(\d+\.\d+\.\d+)$'
+      - assetsPattern: 'windows-amd64.exe$'
+      - minimumVersion: 0.7.0
+
+sources:
+  chocolatey:
+    url: https://community.chocolatey.org/api/v2
+    apiKey: ${APIKEY_CHOCOLATEY}
+  github:
+    url: https://nuget.pkg.github.com/fdcastel/index.json
+    apiKey: ${APIKEY_GITHUB}
+  gitlab:
+    url: https://gitlab.com/api/v4/projects/70655681/packages/nuget/index.json
+    username: fdcastel
+    apiKey: ${APIKEY_GITLAB}

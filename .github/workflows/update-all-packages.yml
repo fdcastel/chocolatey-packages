@@ -1,0 +1,32 @@
+name: update-all-packages
+
+description: Updates all packages using ChocoForge.
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # runs every day at midnight UTC
+  workflow_dispatch:      # allows manual triggering
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update packages
+        shell: pwsh
+        env:
+          APIKEY_CHOCOLATEY: ${{ secrets.APIKEY_CHOCOLATEY }}
+          APIKEY_GITHUB: ${{ secrets.APIKEY_GITHUB }}
+          APIKEY_GITLAB: ${{ secrets.APIKEY_GITLAB }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          Write-Host "Installing ChocoForge..."
+          Install-Module -Name ChocoForge -Force
+
+          Get-Item './*/*.forge.yaml' | ForEach-Object {
+              Write-Host "Updating package $($_.BaseName)...)"
+              Sync-ForgePackage $_.FullName -Verbose
+          }

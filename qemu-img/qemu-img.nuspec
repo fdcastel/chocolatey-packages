@@ -1,21 +1,28 @@
-<?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>qemu-img</id>
-    <version>2.3.0</version>
+    <version>{{version}}</version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
+    <owners>fdcastel</owners>
+
     <title>qemu-img</title>
     <authors>Fabrice Bellard &amp; the QEMU Developers</authors>
-    <owners>Felix Krull</owners>
-    <licenseUrl>http://wiki.qemu.org/License</licenseUrl>
     <projectUrl>http://wiki.qemu.org/Main_Page</projectUrl>
+    <iconUrl>https://qemu.weilnetz.de/icon/benoit/black_and_orange_qemu_head-128x128.png</iconUrl>
+    <licenseUrl>http://wiki.qemu.org/License</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>http://git.qemu.org/qemu.git</projectSourceUrl>
+    <docsUrl>http://wiki.qemu.org/Documentation</docsUrl>
+    <bugTrackerUrl>https://gitlab.com/qemu-project/qemu/-/issues</bugTrackerUrl>
+    <tags>qemu img vhd vmdk vhdx vdi</tags>
+    <summary>QEMU disk image utility</summary>
     <description>qemu-img allows you to create, convert and modify images offline. It
         can handle all image formats supported by QEMU.</description>
-    <summary>QEMU disk image utility</summary>
-    <tags>qemu img vhd vmdk vhdx vdi</tags>
-    <projectSourceUrl>http://git.qemu.org/qemu.git</projectSourceUrl>
-    <packageSourceUrl>https://bitbucket.org/fk/misc-chocolatey</packageSourceUrl>
-    <docsUrl>http://wiki.qemu.org/Documentation</docsUrl>
-    <bugTrackerUrl>https://bugs.launchpad.net/qemu/</bugTrackerUrl>
+    <releaseNotes>https://wiki.qemu.org/ChangeLog</releaseNotes>
   </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
 </package>
