@@ -61,6 +61,11 @@ choco install firebird --params "/ClientOnly"
 - The installer configures Firebird to start automatically as a Windows service
 - Legacy client authentication is enabled for compatibility
 - Client libraries are copied to the system directory for application compatibility
+
+## About anti-malware false positives
+
+Some anti-malware heuristic engines may flag the installer as a potential threat. This is a false positive caused by the installer’s packaging method. For more details, see the related discussion: https://groups.google.com/g/firebird-devel/c/JuorAbImTTk
+
 ]]></description>
     <releaseNotes>https://github.com/FirebirdSQL/firebird/releases</releaseNotes>
   </metadata>
