@@ -79,39 +79,17 @@ if ($env:chocolateyPackageParameters -contains '/ClientOnly') {
     $serverTypeComponent = 'ClientComponent,DevAdminComponent'
     $serverTypeTask = ''
 } else {
-    # Parse version to determine if it's version 4+ (different component structure)
-    $majorVersion = [int]($version -split '\.')[0]
-    
-    if ($majorVersion -lt 4) {
-        # Firebird 3.x
-        if ($env:chocolateyPackageParameters -contains '/SuperClassic') {
-            Write-Host 'Installing Firebird SuperClassic...'
-            $serverTypeComponent = 'ServerComponent,DevAdminComponent,ClientComponent'
-            $serverTypeTask = 'UseSuperClassicTask'
-        } elseif ($env:chocolateyPackageParameters -contains '/Classic') {
-            Write-Host 'Installing Firebird Classic...'
-            $serverTypeComponent = 'ServerComponent,DevAdminComponent,ClientComponent'
-            $serverTypeTask = 'UseClassicServerTask'
-        } else {
-            Write-Host 'Installing Firebird SuperServer...'
-            $serverTypeComponent = 'ServerComponent,DevAdminComponent,ClientComponent'
-            $serverTypeTask = 'UseSuperServerTask'
-        }
+    $serverTypeComponent = 'ServerComponent,DevAdminComponent,ClientComponent'
+
+    if ($env:chocolateyPackageParameters -contains '/SuperClassic') {
+        Write-Host 'Installing Firebird SuperClassic...'
+        $serverTypeTask = 'UseSuperClassicTask'
+    } elseif ($env:chocolateyPackageParameters -contains '/Classic') {
+        Write-Host 'Installing Firebird Classic...'
+        $serverTypeTask = 'UseClassicServerTask'
     } else {
-        # Firebird 4.x and 5.x - simplified component structure
-        if ($env:chocolateyPackageParameters -contains '/SuperClassic') {
-            Write-Host 'Installing Firebird SuperClassic...'
-            $serverTypeComponent = 'ServerComponent,ClientComponent'
-            $serverTypeTask = 'UseSuperClassicTask'
-        } elseif ($env:chocolateyPackageParameters -contains '/Classic') {
-            Write-Host 'Installing Firebird Classic...'
-            $serverTypeComponent = 'ServerComponent,ClientComponent'
-            $serverTypeTask = 'UseClassicServerTask'
-        } else {
-            Write-Host 'Installing Firebird SuperServer...'
-            $serverTypeComponent = 'ServerComponent,ClientComponent'
-            $serverTypeTask = 'UseSuperServerTask'
-        }
+        Write-Host 'Installing Firebird SuperServer...'
+        $serverTypeTask = 'UseSuperServerTask'
     }
 }
 
