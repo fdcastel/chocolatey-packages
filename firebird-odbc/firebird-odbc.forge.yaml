@@ -1,0 +1,16 @@
+package: firebird-odbc
+
+releases:
+  source: https://github.com/fdcastel/firebird-odbc-driver-repack
+  flavors:
+    current:
+      - versionPattern: 'v(\d+\.\d+\.\d+\.\d+)$'
+      - assetsPattern: 'Firebird_ODBC_[\d.]+_(?<arch>Win32|x64)\.exe$'
+
+sources:
+  chocolatey:
+    url: https://community.chocolatey.org/api/v2
+    apiKey: ${APIKEY_CHOCOLATEY}
+  github:
+    url: https://nuget.pkg.github.com/fdcastel/index.json
+    apiKey: ${APIKEY_GITHUB}

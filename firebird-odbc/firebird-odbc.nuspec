@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if "Ω" doesn't appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>firebird-odbc</id>
-    <version>2.0.5.156</version>
-    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>    
+    <version>{{version}}</version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <owners>fdcastel</owners>
     <title>Firebird ODBC Driver</title>
     <authors>Firebird Project</authors>
     <projectUrl>https://www.firebirdsql.org/en/odbc-driver/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <tags>Firebird ODBC</tags>
-    <summary>ODBC Driver for Firebird.</summary>
+    <projectSourceUrl>https://github.com/FirebirdSQL/firebird-odbc-driver/</projectSourceUrl>
+    <tags>firebird odbc driver</tags>
+    <summary>ODBC Driver for Firebird</summary>
     <description>
-ODBC Driver for Firebird.
+      ODBC Driver for Firebird relational database.
     </description>
+    <releaseNotes>https://github.com/FirebirdSQL/firebird-odbc-driver/wiki</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
