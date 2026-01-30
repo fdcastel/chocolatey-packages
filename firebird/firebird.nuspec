@@ -6,7 +6,7 @@
     <version>{{version}}</version>
     <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
     <owners>fdcastel</owners>
-    <title>Firebird</title>
+    <title>Firebird Database Server</title>
     <authors>Firebird Foundation</authors>
     <projectUrl>https://firebirdsql.org/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/fdcastel/chocolatey-packages@master/icons/firebird.png</iconUrl>
