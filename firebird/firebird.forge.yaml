@@ -4,17 +4,17 @@ releases:
   source: https://github.com/FirebirdSQL/firebird
   flavors:
     current:
-      - versionPattern: 'v(5\.\d+\.\d+)$'
-      - assetsPattern: 'Firebird-[\d.]+-\d+-windows-(?<arch>[^-_.]+)\.exe$'
-      - minimumVersion: 5.0.1
+      versionPattern: 'v(5\.\d+\.\d+)$'
+      assetsPattern: 'Firebird-[\d.]+-\d+-windows-(?<arch>[^-_.]+)\.exe$'
+      minimumVersion: 5.0.1
     v4:
-      - versionPattern: 'v(4\.\d+\.\d+)$'
-      - assetsPattern: 'Firebird-\d+\.\d+\.\d+\.\d+[-_]\d+[-_](?<arch>[^-_.]+)\.exe$'
-      - minimumVersion: 4.0.4
+      versionPattern: 'v(4\.\d+\.\d+)$'
+      assetsPattern: 'Firebird-\d+\.\d+\.\d+\.\d+[-_]\d+[-_](?<arch>[^-_.]+)\.exe$'
+      minimumVersion: 4.0.4
     v3:
-      - versionPattern: 'v(3\.\d+\.\d+)$'
-      - assetsPattern: 'Firebird-\d+\.\d+\.\d+\.\d+[-_]\d+[-_](?<arch>[^-_.]+)\.exe$'
-      - minimumVersion: 3.0.11
+      versionPattern: 'v(3\.\d+\.\d+)$'
+      assetsPattern: 'Firebird-\d+\.\d+\.\d+\.\d+[-_]\d+[-_](?<arch>[^-_.]+)\.exe$'
+      minimumVersion: 3.0.11
 
 sources:
   chocolatey:

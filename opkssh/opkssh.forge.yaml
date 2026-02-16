@@ -4,9 +4,9 @@ releases:
   source: https://github.com/openpubkey/opkssh
   flavors:
     current:
-      - versionPattern: 'v(\d+\.\d+\.\d+)$'
-      - assetsPattern: 'windows-amd64.exe$'
-      - minimumVersion: 0.7.0
+      versionPattern: 'v(\d+\.\d+\.\d+)$'
+      assetsPattern: 'windows-amd64.exe$'
+      minimumVersion: 0.7.0
 
 sources:
   chocolatey:

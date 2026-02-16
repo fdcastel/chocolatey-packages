@@ -4,8 +4,8 @@ releases:
   source: https://github.com/fdcastel/qemu-img-windows-x64
   flavors:
     current:
-      - versionPattern: 'v(\d+\.\d+\.\d+)$'
-      - assetsPattern: '.zip$'
+      versionPattern: 'v(\d+\.\d+\.\d+)$'
+      assetsPattern: '.zip$'
 
 sources:
   chocolatey:
