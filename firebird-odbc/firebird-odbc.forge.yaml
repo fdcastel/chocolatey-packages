@@ -2,6 +2,7 @@ package: firebird-odbc
 
 releases:
   source: https://github.com/fdcastel/firebird-odbc-driver-repack
+  embed: true
   flavors:
     current:
       versionPattern: 'v(\d+\.\d+\.\d+\.\d+)$'

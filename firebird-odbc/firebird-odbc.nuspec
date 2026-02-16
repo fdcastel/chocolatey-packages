@@ -19,6 +19,7 @@
     <releaseNotes>https://github.com/FirebirdSQL/firebird-odbc-driver/wiki</releaseNotes>
   </metadata>
   <files>
+    <file src="legal\**" target="legal" />
     <file src="tools\**" target="tools" />
   </files>
 </package>
