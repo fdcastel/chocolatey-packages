@@ -1,0 +1,17 @@
+VERIFICATION
+
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+
+The included installers were obtained from the official releases published at:
+
+  https://github.com/FirebirdSQL/firebird-odbc-driver/wiki
+
+To verify the package contents:
+
+1. Download the .zip file corresponding to this specific version from the link above.
+2. Extract the archive; it will include both installer files.
+3. Validate the installers by comparing their SHA256 hashes with the values below:
+
+- 64-bit installer: {{assets.x64.sha256}}
+- 32-bit installer: {{assets.x86.sha256}}{{assets.Win32.sha256}}
