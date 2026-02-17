@@ -9,6 +9,8 @@
     <title>Firebird ODBC Driver</title>
     <authors>Firebird Project</authors>
     <projectUrl>https://www.firebirdsql.org/en/odbc-driver/</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/fdcastel/chocolatey-packages@master/icons/firebird.png</iconUrl>
+    <licenseUrl>https://firebirdsql.org/en/licensing/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/FirebirdSQL/firebird-odbc-driver/</projectSourceUrl>
     <tags>firebird odbc driver</tags>
