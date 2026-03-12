@@ -1,0 +1,14 @@
+package: clickhouse-odbc
+
+releases:
+  source: https://github.com/ClickHouse/clickhouse-odbc
+  flavors:
+    current:
+      versionPattern: 'v?(\d+\.\d+\.\d+)\.\d+$'
+      assetsPattern: 'clickhouse-odbc-[\d.]+-win64\.msi$'
+      minimumVersion: 1.5.2
+
+sources:
+  chocolatey:
+    url: https://community.chocolatey.org/api/v2
+    apiKey: ${APIKEY_CHOCOLATEY}

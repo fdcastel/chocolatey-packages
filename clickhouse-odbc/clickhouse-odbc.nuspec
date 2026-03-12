@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if "Ω" doesn't appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>clickhouse-odbc</id>
+    <version>{{version}}</version>
+    <packageSourceUrl>https://github.com/fdcastel/chocolatey-packages</packageSourceUrl>
+    <owners>fdcastel</owners>
+    <title>ClickHouse ODBC Driver</title>
+    <authors>ClickHouse, Inc.</authors>
+    <projectUrl>https://clickhouse.com/docs/interfaces/odbc</projectUrl>
+    <projectSourceUrl>https://github.com/ClickHouse/clickhouse-odbc</projectSourceUrl>
+    <licenseUrl>https://github.com/ClickHouse/clickhouse-odbc/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>clickhouse odbc driver database</tags>
+    <summary>ODBC Driver for ClickHouse</summary>
+    <description>Official ODBC driver for ClickHouse, an open-source column-oriented database management system. Provides ANSI and Unicode ODBC interfaces for connecting to ClickHouse from Windows applications.</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
