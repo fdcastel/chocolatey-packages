@@ -26,7 +26,30 @@ jobs:
           Write-Host "Installing ChocoForge..."
           Install-Module -Name ChocoForge -Force
 
-          Get-Item './*/*.forge.yaml' | ForEach-Object {
-              Write-Host "Updating package $($_.BaseName)...)"
-              Sync-ForgePackage $_.FullName -Verbose
+          $failedPackages = @()
+
+          foreach ($forgeFile in Get-Item './*/*.forge.yaml') {
+              Write-Host "Updating package $($forgeFile.BaseName)..."
+
+              try {
+                  Sync-ForgePackage $forgeFile.FullName -Verbose -ErrorAction Stop
+              }
+              catch {
+                  $failedPackages += [pscustomobject]@{
+                      Package = $forgeFile.BaseName
+                      Error   = $_.Exception.Message
+                  }
+
+                  Write-Warning "Package '$($forgeFile.BaseName)' failed: $($_.Exception.Message)"
+              }
+          }
+
+          if ($failedPackages.Count -gt 0) {
+              Write-Host ''
+              Write-Host 'Packages with failures:' -ForegroundColor Yellow
+              $failedPackages | ForEach-Object {
+                  Write-Host "  - $($_.Package): $($_.Error)" -ForegroundColor Yellow
+              }
+
+              throw "$($failedPackages.Count) package(s) failed during update."
           }
