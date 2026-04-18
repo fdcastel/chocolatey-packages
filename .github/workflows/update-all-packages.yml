@@ -53,11 +53,13 @@ jobs:
                   [string]$Package,
                   [Parameter(Mandatory)]
                   [string]$Version,
-                  [int]$MaxChecks = 40,            # 40 checks
-                  [int]$CheckIntervalSeconds = 15  # 15 seconds each => 10 minutes total
+                  [int]$MaxChecks = 40,
+                  [int]$CheckIntervalSeconds = 15
               )
 
-              # Chocolatey indexing is eventually consistent; allow up to 10 minutes before considering a push failed.
+              # Chocolatey indexing is eventually consistent. Poll for visibility up to the computed timeout.
+              $totalTimeoutSeconds = $MaxChecks * $CheckIntervalSeconds
+              Write-Verbose "Waiting up to $totalTimeoutSeconds second(s) for Chocolatey visibility of $Package $Version."
               for ($attempt = 1; $attempt -le $MaxChecks; $attempt++) {
                   if (Test-ChocolateyVersionVisible -Package $Package -Version $Version) {
                       return $true
