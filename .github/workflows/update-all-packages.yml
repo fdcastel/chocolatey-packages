@@ -28,6 +28,7 @@ jobs:
 
           $ChocolateySearchSourceUrl = 'https://community.chocolatey.org/api/v2'
           $ChocolateyPushSourceUrl = 'https://push.chocolatey.org'
+          $ChocolateySearchSourceUri = [System.Uri]$ChocolateySearchSourceUrl
 
           function Test-ChocolateyVersionVisible {
               param(
@@ -52,8 +53,8 @@ jobs:
                   [string]$Package,
                   [Parameter(Mandatory)]
                   [string]$Version,
-                  [int]$MaxChecks = 40,
-                  [int]$CheckIntervalSeconds = 15
+                  [int]$MaxChecks = 40,            # 40 checks
+                  [int]$CheckIntervalSeconds = 15  # 15 seconds each => 10 minutes total
               )
 
               # Chocolatey indexing is eventually consistent; allow up to 10 minutes before considering a push failed.
@@ -75,7 +76,7 @@ jobs:
 
               try {
                   $uri = [System.Uri]$SourceUrl
-                  return ($uri.Scheme -eq 'https' -and $uri.Host -eq ([System.Uri]$ChocolateySearchSourceUrl).Host)
+                  return ($uri.Scheme -eq 'https' -and $uri.Host -eq $ChocolateySearchSourceUri.Host)
               }
               catch {
                   return $false
