@@ -26,13 +26,101 @@ jobs:
           Write-Host "Installing ChocoForge..."
           Install-Module -Name ChocoForge -Force
 
+          function Test-ChocolateyVersionVisible {
+              param(
+                  [Parameter(Mandatory)]
+                  [string]$Package,
+                  [Parameter(Mandatory)]
+                  [string]$Version
+              )
+
+              $searchOutput = & choco search $Package --exact --ignore-http-cache --limit-output --version $Version --source 'https://community.chocolatey.org/api/v2' 2>$null
+              if ($LASTEXITCODE -ne 0) {
+                  throw "Unable to verify Chocolatey visibility for '$Package' version '$Version'."
+              }
+
+              return -not [string]::IsNullOrWhiteSpace((($searchOutput | Out-String).Trim()))
+          }
+
+          function Invoke-FirebirdSync {
+              param(
+                  [Parameter(Mandatory)]
+                  [string]$Path
+              )
+
+              $config = Get-ForgePackage -Path $Path -Passthru -Verbose -ErrorAction Stop
+              $activeSources = $config.sources.Keys | Where-Object { -not $config.sources[$_].skipReason }
+              $versionsToBuild = $activeSources |
+                  ForEach-Object { $config.sources[$_].missingVersions } |
+                      Select-Object -Unique
+
+              if (-not $versionsToBuild) {
+                  Write-Host 'No Firebird versions to publish.'
+                  return
+              }
+
+              Write-Host "Building Firebird package versions: $($versionsToBuild -join ', ')"
+              $builtPackages = @(Build-ForgePackage -Path $Path -Version $versionsToBuild -Verbose -ErrorAction Stop)
+
+              foreach ($sourceName in $activeSources) {
+                  $source = $config.sources[$sourceName]
+                  Write-Host "Publishing Firebird packages for source '$sourceName'..."
+
+                  foreach ($version in $source.missingVersions) {
+                      $packagePath = $builtPackages | Where-Object { $_ -like "*.$($version).nupkg" } | Select-Object -First 1
+                      if (-not $packagePath) {
+                          throw "Built package for Firebird version '$version' was not found."
+                      }
+
+                      if ($source.url.StartsWith('https://community.chocolatey.org')) {
+                          if (Test-ChocolateyVersionVisible -Package $config.package -Version $version) {
+                              Write-Host "Firebird $version already visible on Chocolatey. Skipping publish."
+                              continue
+                          }
+                      }
+
+                      $pushSourceUrl = if ($source.url.StartsWith('https://community.chocolatey.org')) { 'https://push.chocolatey.org' } else { $source.url }
+                      $chocoPushArguments = @('push', $packagePath, '--source', $pushSourceUrl, '--limit-output')
+                      if ($source.resolvedApiKey) {
+                          $chocoPushArguments += @('--api-key', $source.resolvedApiKey)
+                      }
+
+                      Write-Host "Publishing Firebird $version to '$sourceName'..."
+                      $pushOutput = & choco @chocoPushArguments 2>&1
+                      if ($LASTEXITCODE -ne 0) {
+                          throw "Failed to publish Firebird $version to '$sourceName': $($pushOutput | Out-String)"
+                      }
+
+                      if ($source.url.StartsWith('https://community.chocolatey.org')) {
+                          $isVisible = $false
+                          for ($attempt = 1; $attempt -le 40; $attempt++) {
+                              Start-Sleep -Seconds 15
+                              if (Test-ChocolateyVersionVisible -Package $config.package -Version $version) {
+                                  $isVisible = $true
+                                  break
+                              }
+                          }
+
+                          if (-not $isVisible) {
+                              throw "Firebird $version was pushed to Chocolatey but did not become searchable within the expected time."
+                          }
+                      }
+                  }
+              }
+          }
+
           $failedPackages = @()
 
           foreach ($forgeFile in Get-Item './*/*.forge.yaml') {
               Write-Host "Updating package $($forgeFile.BaseName)..."
 
               try {
-                  Sync-ForgePackage $forgeFile.FullName -Verbose -ErrorAction Stop
+                  if ($forgeFile.BaseName -eq 'firebird') {
+                      Invoke-FirebirdSync -Path $forgeFile.FullName
+                  }
+                  else {
+                      Sync-ForgePackage $forgeFile.FullName -Verbose -ErrorAction Stop
+                  }
               }
               catch {
                   $failedPackages += [pscustomobject]@{
