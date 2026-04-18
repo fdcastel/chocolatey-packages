@@ -43,6 +43,42 @@ jobs:
               return -not [string]::IsNullOrWhiteSpace($searchText)
           }
 
+          function Wait-ChocolateyVersionVisible {
+              param(
+                  [Parameter(Mandatory)]
+                  [string]$Package,
+                  [Parameter(Mandatory)]
+                  [string]$Version,
+                  [int]$MaxChecks = 40,
+                  [int]$CheckIntervalSeconds = 15
+              )
+
+              # Chocolatey indexing is eventually consistent; allow up to 10 minutes before considering a push failed.
+              for ($attempt = 1; $attempt -le $MaxChecks; $attempt++) {
+                  Start-Sleep -Seconds $CheckIntervalSeconds
+                  if (Test-ChocolateyVersionVisible -Package $Package -Version $Version) {
+                      return $true
+                  }
+              }
+
+              return $false
+          }
+
+          function Test-IsChocolateyCommunitySource {
+              param(
+                  [Parameter(Mandatory)]
+                  [string]$SourceUrl
+              )
+
+              try {
+                  $uri = [System.Uri]$SourceUrl
+                  return ($uri.Scheme -eq 'https' -and $uri.Host -eq 'community.chocolatey.org')
+              }
+              catch {
+                  return $false
+              }
+          }
+
           function Invoke-FirebirdSync {
               param(
                   [Parameter(Mandatory)]
@@ -65,7 +101,7 @@ jobs:
 
               foreach ($sourceName in $activeSources) {
                   $source = $config.sources[$sourceName]
-                  $isChocolateySource = $source.url.StartsWith('https://community.chocolatey.org')
+                  $isChocolateySource = Test-IsChocolateyCommunitySource -SourceUrl $source.url
                   Write-Host "Publishing Firebird packages for source '$sourceName'..."
 
                   foreach ($version in $source.missingVersions) {
@@ -94,17 +130,7 @@ jobs:
                       }
 
                       if ($isChocolateySource) {
-                          $maxVisibilityChecks = 40
-                          $visibilityCheckIntervalSeconds = 15
-                          $isVisible = $false
-                          for ($attempt = 1; $attempt -le $maxVisibilityChecks; $attempt++) {
-                              Start-Sleep -Seconds $visibilityCheckIntervalSeconds
-                              if (Test-ChocolateyVersionVisible -Package $config.package -Version $version) {
-                                  $isVisible = $true
-                                  break
-                              }
-                          }
-
+                          $isVisible = Wait-ChocolateyVersionVisible -Package $config.package -Version $version
                           if (-not $isVisible) {
                               throw "Firebird $version was pushed to Chocolatey but did not become searchable within the expected time."
                           }
