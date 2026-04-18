@@ -34,9 +34,9 @@ jobs:
                   [string]$Version
               )
 
-              $searchOutput = & choco search $Package --exact --ignore-http-cache --limit-output --version $Version --source 'https://community.chocolatey.org/api/v2' 2>$null
+              $searchOutput = & choco search $Package --exact --ignore-http-cache --limit-output --version $Version --source 'https://community.chocolatey.org/api/v2' 2>&1
               if ($LASTEXITCODE -ne 0) {
-                  throw "Unable to verify Chocolatey visibility for '$Package' version '$Version'."
+                  throw "Unable to verify Chocolatey visibility for '$Package' version '$Version': $($searchOutput | Out-String)"
               }
 
               return -not [string]::IsNullOrWhiteSpace((($searchOutput | Out-String).Trim()))
@@ -92,9 +92,11 @@ jobs:
                       }
 
                       if ($source.url.StartsWith('https://community.chocolatey.org')) {
+                          $maxVisibilityChecks = 40
+                          $visibilityCheckIntervalSeconds = 15
                           $isVisible = $false
-                          for ($attempt = 1; $attempt -le 40; $attempt++) {
-                              Start-Sleep -Seconds 15
+                          for ($attempt = 1; $attempt -le $maxVisibilityChecks; $attempt++) {
+                              Start-Sleep -Seconds $visibilityCheckIntervalSeconds
                               if (Test-ChocolateyVersionVisible -Package $config.package -Version $version) {
                                   $isVisible = $true
                                   break
