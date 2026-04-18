@@ -59,7 +59,7 @@ jobs:
 
               # Chocolatey indexing is eventually consistent. Poll for visibility up to the computed timeout.
               $totalTimeoutSeconds = $MaxChecks * $CheckIntervalSeconds
-              Write-Verbose "Waiting up to $totalTimeoutSeconds second(s) for Chocolatey visibility of $Package $Version."
+              Write-Verbose "Waiting up to $totalTimeoutSeconds seconds for Chocolatey visibility of $Package $Version."
               for ($attempt = 1; $attempt -le $MaxChecks; $attempt++) {
                   if (Test-ChocolateyVersionVisible -Package $Package -Version $Version) {
                       return $true
@@ -95,7 +95,7 @@ jobs:
               $activeSources = $config.sources.Keys | Where-Object { -not $config.sources[$_].skipReason }
               $versionsToBuild = $activeSources |
                   ForEach-Object { $config.sources[$_].missingVersions } |
-                      Select-Object -Unique
+                  Select-Object -Unique
 
               if (-not $versionsToBuild) {
                   Write-Host 'No Firebird versions to publish.'
