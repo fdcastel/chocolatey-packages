@@ -40,7 +40,8 @@ jobs:
 
               $searchOutput = & choco search $Package --exact --ignore-http-cache --limit-output --version $Version --source $ChocolateySearchSourceUrl 2>&1
               if ($LASTEXITCODE -ne 0) {
-                  throw "Unable to verify Chocolatey visibility for '$Package' version '$Version': $($searchOutput | Out-String)"
+                  $searchError = (($searchOutput | ForEach-Object { $_.ToString().Trim() }) -join '; ').Trim(';', ' ')
+                  throw "Unable to verify Chocolatey visibility for '$Package' version '$Version': $searchError"
               }
 
               $searchText = ($searchOutput | Out-String).Trim()
@@ -53,8 +54,8 @@ jobs:
                   [string]$Package,
                   [Parameter(Mandatory)]
                   [string]$Version,
-                  [int]$MaxChecks = 40,
-                  [int]$CheckIntervalSeconds = 15
+                  [int]$MaxChecks = 40,            # 10-minute timeout with default interval
+                  [int]$CheckIntervalSeconds = 15  # keep in sync with MaxChecks rationale above
               )
 
               # Chocolatey indexing is eventually consistent. Poll for visibility up to the computed timeout.
@@ -112,7 +113,8 @@ jobs:
                   Write-Host "Publishing Firebird packages for source '$sourceName'..."
 
                   foreach ($version in $source.missingVersions) {
-                      $packagePath = $builtPackages | Where-Object { $_ -like "*.$($version).nupkg" } | Select-Object -First 1
+                      $versionPattern = "\.$([regex]::Escape([string]$version))\.nupkg$"
+                      $packagePath = $builtPackages | Where-Object { $_ -match $versionPattern } | Select-Object -First 1
                       if (-not $packagePath) {
                           throw "Built package for Firebird version '$version' was not found."
                       }
