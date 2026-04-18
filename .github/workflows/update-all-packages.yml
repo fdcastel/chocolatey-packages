@@ -26,6 +26,9 @@ jobs:
           Write-Host "Installing ChocoForge..."
           Install-Module -Name ChocoForge -Force
 
+          $ChocolateySearchSourceUrl = 'https://community.chocolatey.org/api/v2'
+          $ChocolateyPushSourceUrl = 'https://push.chocolatey.org'
+
           function Test-ChocolateyVersionVisible {
               param(
                   [Parameter(Mandatory)]
@@ -34,7 +37,7 @@ jobs:
                   [string]$Version
               )
 
-              $searchOutput = & choco search $Package --exact --ignore-http-cache --limit-output --version $Version --source 'https://community.chocolatey.org/api/v2' 2>&1
+              $searchOutput = & choco search $Package --exact --ignore-http-cache --limit-output --version $Version --source $ChocolateySearchSourceUrl 2>&1
               if ($LASTEXITCODE -ne 0) {
                   throw "Unable to verify Chocolatey visibility for '$Package' version '$Version': $($searchOutput | Out-String)"
               }
@@ -55,10 +58,10 @@ jobs:
 
               # Chocolatey indexing is eventually consistent; allow up to 10 minutes before considering a push failed.
               for ($attempt = 1; $attempt -le $MaxChecks; $attempt++) {
-                  Start-Sleep -Seconds $CheckIntervalSeconds
                   if (Test-ChocolateyVersionVisible -Package $Package -Version $Version) {
                       return $true
                   }
+                  Start-Sleep -Seconds $CheckIntervalSeconds
               }
 
               return $false
@@ -72,7 +75,7 @@ jobs:
 
               try {
                   $uri = [System.Uri]$SourceUrl
-                  return ($uri.Scheme -eq 'https' -and $uri.Host -eq 'community.chocolatey.org')
+                  return ($uri.Scheme -eq 'https' -and $uri.Host -eq ([System.Uri]$ChocolateySearchSourceUrl).Host)
               }
               catch {
                   return $false
@@ -117,7 +120,7 @@ jobs:
                           }
                       }
 
-                      $pushSourceUrl = if ($isChocolateySource) { 'https://push.chocolatey.org' } else { $source.url }
+                      $pushSourceUrl = if ($isChocolateySource) { $ChocolateyPushSourceUrl } else { $source.url }
                       $chocoPushArguments = @('push', $packagePath, '--source', $pushSourceUrl, '--limit-output')
                       if ($source.resolvedApiKey) {
                           $chocoPushArguments += @('--api-key', $source.resolvedApiKey)
