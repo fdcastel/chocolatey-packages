@@ -39,7 +39,8 @@ jobs:
                   throw "Unable to verify Chocolatey visibility for '$Package' version '$Version': $($searchOutput | Out-String)"
               }
 
-              return -not [string]::IsNullOrWhiteSpace((($searchOutput | Out-String).Trim()))
+              $searchText = ($searchOutput | Out-String).Trim()
+              return -not [string]::IsNullOrWhiteSpace($searchText)
           }
 
           function Invoke-FirebirdSync {
@@ -64,6 +65,7 @@ jobs:
 
               foreach ($sourceName in $activeSources) {
                   $source = $config.sources[$sourceName]
+                  $isChocolateySource = $source.url.StartsWith('https://community.chocolatey.org')
                   Write-Host "Publishing Firebird packages for source '$sourceName'..."
 
                   foreach ($version in $source.missingVersions) {
@@ -72,14 +74,14 @@ jobs:
                           throw "Built package for Firebird version '$version' was not found."
                       }
 
-                      if ($source.url.StartsWith('https://community.chocolatey.org')) {
+                      if ($isChocolateySource) {
                           if (Test-ChocolateyVersionVisible -Package $config.package -Version $version) {
                               Write-Host "Firebird $version already visible on Chocolatey. Skipping publish."
                               continue
                           }
                       }
 
-                      $pushSourceUrl = if ($source.url.StartsWith('https://community.chocolatey.org')) { 'https://push.chocolatey.org' } else { $source.url }
+                      $pushSourceUrl = if ($isChocolateySource) { 'https://push.chocolatey.org' } else { $source.url }
                       $chocoPushArguments = @('push', $packagePath, '--source', $pushSourceUrl, '--limit-output')
                       if ($source.resolvedApiKey) {
                           $chocoPushArguments += @('--api-key', $source.resolvedApiKey)
@@ -91,7 +93,7 @@ jobs:
                           throw "Failed to publish Firebird $version to '$sourceName': $($pushOutput | Out-String)"
                       }
 
-                      if ($source.url.StartsWith('https://community.chocolatey.org')) {
+                      if ($isChocolateySource) {
                           $maxVisibilityChecks = 40
                           $visibilityCheckIntervalSeconds = 15
                           $isVisible = $false
